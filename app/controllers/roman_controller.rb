@@ -1,11 +1,14 @@
 # frozen_string_literal: true
 
-class RomanController
-  extend Converter
-end
+class RomanController < ApplicationController
+  require 'json'
 
-module Converter
-  def toNumber()
-    
+  def toNumber
+    num = RomanToNumberConverter.toNumber(params[:romanNumeral])
+
+    response = RomanResponse.new('roman' => params[:romanNumeral], 'number' => num)
+    render json: response.as_json
   end
 end
+
+

@@ -1,7 +1,7 @@
 # frozen_string_literal: true
 
 class RomanToNumberConverter
-  def convertToNumber(romanNumeral)
-
-  end
+  require 'converter'
+  include Converter
+  extend Converter
 end

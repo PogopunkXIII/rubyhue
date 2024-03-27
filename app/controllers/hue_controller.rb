@@ -28,8 +28,6 @@ class HueController < ApplicationController
       'hue-application-key' => ENV['HUE_USERNAME']
     }
 
-    puts "about to call the bridge"
-
     HTTParty.put("https://192.168.1.146/clip/v2/resource/light/#{ENV['LIGHT_ID']}", headers: headers, body: body.to_json, :verify => false)
   end
 
